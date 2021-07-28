@@ -31,10 +31,10 @@ $x = 0
 while($x -ne $test){
 $x++
 foreach($d in $testo){
-        if($d.HasTextFrame -ne $null)
+        if($d.HasTextFrame)
             {
             #$name = $ppt.ActivePresentation.Slides($i).Shapes($x).Name
-            $string = $ppt.ActivePresentation.Slides($i).Shapes($x).TextFrame.TextRange.Text #pulls the text out of each shape in each slide of a PPT
+            $string = $ppt.ActivePresentation.Slides($i).Shapes($x).TextFrame.TextRange | select Text #pulls the text out of each shape in each slide of a PPT
             if($string -Match $MatchString)
             {
             #$string  #prints matched string if you want to see it
